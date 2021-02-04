@@ -32,10 +32,7 @@ const lastNameToFind = "Meitner";
 function findInventorByLastName(lastName) {
   for (let index = 0; index < inventors.length; index++) {
     const inventor = inventors[index];
-    console.log("1 INVENTOR IN THE LOOP:", inventor.last, lastNameToFind);
-    console.log("STOP NOW?", inventor.last === lastNameToFind);
-    if (inventor.last === lastNameToFind) {
-      console.log("STOP!");
+    if (inventor.last === lastName) {
       return inventor;
     }
   }
