@@ -82,10 +82,7 @@ console.log(inventorsFrom16thCentury);
 // 2. Maak een array met daarin alle geboortejaren van de uitvinders
 // Verwachte uitkomst: [1879, 1643, 1564, 1867, 1571, 1473, 1858, 1898, 1815, 1855, 1878, 1847];
 
-const birthYears = inventors.map((inventor) => {
-  console.log(inventor.year);
-  return inventor.year;
-});
+const birthYears = inventors.map((inventor) => inventor.year);
 
 console.log(birthYears);
 
@@ -108,6 +105,27 @@ console.log(birthYears);
 //   { first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
 //   { first: 'Katherine', last: 'Blodgett', year: 1898, passed: 1979 }
 // ]
+
+const sorted = inventors.sort((inventorA, inventorB) => {
+  console.log("WHAT IS A?", inventorA.year, "WHAT IS B?", inventorB.year);
+  // what moeten we returnen?
+  if (inventorA.year > inventorB.year) {
+    return 1;
+  }
+
+  if (inventorA.year < inventorB.year) {
+    return -1;
+  }
+
+  if (inventorA.year === inventorB.year) {
+    return 0;
+  }
+  // OF een positief getal: 1 of 10, 278 -> schuift op naar rechts in de array
+  // OF een negatief getal: -1 of -10 of -9864 -> schuift op naar links
+  // OF 0 -> blijft op dezelfde plek
+});
+
+console.log(sorted);
 
 // 5. Sorteer de uitvinders op hoeveel jaren ze geleefd hebben, van langste leven naar kortste leven
 // Verwachte uitkomst:
