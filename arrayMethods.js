@@ -109,17 +109,21 @@ console.log(birthYears);
 const sorted = inventors.sort((inventorA, inventorB) => {
   console.log("WHAT IS A?", inventorA.year, "WHAT IS B?", inventorB.year);
   // what moeten we returnen?
-  if (inventorA.year > inventorB.year) {
-    return 1;
-  }
+  // 1754 - 1987 => negatief getal
+  // 1910 - 1647 => positief getal
+  // 1900 - 1900 => 0
+  return inventorA.year - inventorB.year;
+  // if (inventorA.year > inventorB.year) {
+  //   return 1;
+  // }
 
-  if (inventorA.year < inventorB.year) {
-    return -1;
-  }
+  // if (inventorA.year < inventorB.year) {
+  //   return -1;
+  // }
 
-  if (inventorA.year === inventorB.year) {
-    return 0;
-  }
+  // if (inventorA.year === inventorB.year) {
+  //   return 0;
+  // }
   // OF een positief getal: 1 of 10, 278 -> schuift op naar rechts in de array
   // OF een negatief getal: -1 of -10 of -9864 -> schuift op naar links
   // OF 0 -> blijft op dezelfde plek
