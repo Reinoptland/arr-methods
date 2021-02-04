@@ -49,11 +49,12 @@ const foundInventor = findInventorByLastName(lastNameToFind);
 const foundInventor2 = inventors.find(function (inventor) {
   console.log("1 INVENTOR IN FIND:", inventor.last, lastNameToFind);
   console.log("FOUND?", inventor.last === lastNameToFind);
-  if (inventor.last === lastNameToFind) {
-    return true;
-  } else {
-    return false;
-  }
+  return inventor.last === lastNameToFind; // true of false
+  // if (inventor.last === lastNameToFind) {
+  //   return true;
+  // } else {
+  //   return false;
+  // }
 });
 
 console.log(foundInventor2);
