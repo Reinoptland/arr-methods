@@ -39,7 +39,24 @@ function findInventorByLastName(lastName) {
 }
 
 const foundInventor = findInventorByLastName(lastNameToFind);
-console.log("GEVONDEN?", foundInventor);
+// console.log("GEVONDEN?", foundInventor);
+
+// Hoe werkt find:
+// - Je geeft een functie mee aan find (als argument)
+// - Find gaat de function aanroepen, met elk element van de array als argument
+//  - Als false returned uit de functie -> ga door met zoeken
+//  - Als je true returned uit de functie -> we hebben hem gevonden! (find stop dan)
+const foundInventor2 = inventors.find(function (inventor) {
+  console.log("1 INVENTOR IN FIND:", inventor.last, lastNameToFind);
+  console.log("FOUND?", inventor.last === lastNameToFind);
+  if (inventor.last === lastNameToFind) {
+    return true;
+  } else {
+    return false;
+  }
+});
+
+console.log(foundInventor2);
 
 // 1. Filter de lijst op uitvinders die geboren zijn in de 16e eeuw
 // Verwachte uitkomst:
