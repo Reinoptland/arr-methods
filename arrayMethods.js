@@ -19,6 +19,9 @@ const inventors = [
 // - for loop!
 // - find?
 // Q: Waarom Array methoden (waarom geen for loop?)
+// - Korter!
+// - Descriptief -> for loop kan alles, find doet iets specifieks
+// - Declarative
 
 // - [x] De naam opslaan van de uitvinder die ik wil vinden: variabele
 // - [x] Loopen door de array van uitvinders
@@ -30,6 +33,7 @@ const inventors = [
 const lastNameToFind = "Meitner";
 
 function findInventorByLastName(lastName) {
+  // Imperative: serie stappen die we gaan doorlopen
   for (let index = 0; index < inventors.length; index++) {
     const inventor = inventors[index];
     if (inventor.last === lastName) {
@@ -37,6 +41,19 @@ function findInventorByLastName(lastName) {
     }
   }
 }
+
+// Declarative
+// - Ik wil iets "find"en
+// - en een conditie
+const foundInventor2 = inventors.find((inventor) => {
+  return inventor.last === lastNameToFind;
+}); // true of fals
+
+const result = inventors.find((inventor) => {
+  console.log("EEN UITVINDER:", inventor.last);
+  return inventor.last === lastNameToFind;
+});
+console.log("RESULT", result);
 
 const foundInventor = findInventorByLastName(lastNameToFind);
 // console.log("GEVONDEN?", foundInventor);
@@ -46,22 +63,21 @@ const foundInventor = findInventorByLastName(lastNameToFind);
 // - Find gaat de function aanroepen, met elk element van de array als argument
 //  - Als false returned uit de functie -> ga door met zoeken
 //  - Als je true returned uit de functie -> we hebben hem gevonden! (find stop dan)
-const foundInventor2 = inventors.find(function (inventor) {
-  console.log("1 INVENTOR IN FIND:", inventor.last, lastNameToFind);
-  console.log("FOUND?", inventor.last === lastNameToFind);
-  return inventor.last === lastNameToFind; // true of false
-  // if (inventor.last === lastNameToFind) {
-  //   return true;
-  // } else {
-  //   return false;
-  // }
-});
 
 console.log(foundInventor2);
 
 // 1. Filter de lijst op uitvinders die geboren zijn in de 16e eeuw
 // Verwachte uitkomst:
 // [{ first: 'Galileo', last: 'Galilei', year: 1564, passed: 1642 }, { first: 'Johannes', last: 'Kepler', year: 1571, passed: 1630 }]
+const inventorsFrom16thCentury = inventors.filter((inventor) => {
+  console.log("INSIDE FILTER", 1500, inventor.year, 1600);
+  console.log("KEEP:", inventor.year >= 1500 && inventor.year < 1600); // true or false
+  return inventor.year >= 1500 && inventor.year < 1600;
+  // return true -> Houden
+  // rturn false -> Worden ze niet toegevoegd aan het array wat je terugkrijgt
+});
+
+console.log(inventorsFrom16thCentury);
 
 // 2. Maak een array met daarin alle geboortejaren van de uitvinders
 // Verwachte uitkomst: [1879, 1643, 1564, 1867, 1571, 1473, 1858, 1898, 1815, 1855, 1878, 1847];
