@@ -89,7 +89,8 @@ console.log(birthYears);
 // 3. Maak een array met daarin alle volledige namen van de uitvinders (dus voor- en achternaam als één string)
 // Verwachte uitkomst: [ 'Albert Einstein', 'Isaac Newton', 'Galileo Galilei', 'Marie Curie', 'Johannes Kepler', 'Nicolaus Copernicus', 'Max Planck', 'Katherine Blodgett', 'Ada Lovelace', 'Sarah E. Goode', 'Lise Meitner', 'Thomas Edison']
 
-// 4. Sorteer de uitvinders op geboortejaar, oplopend van oudste naar jongste uitvinder
+// 4. Sorteer de uitvinders op geboortejaar, oplopend van langste gelden naar meest
+// recent uitvinder
 // Verwachte uitkomst:
 // [
 //   { first: 'Nicolaus', last: 'Copernicus', year: 1473, passed: 1543 },
@@ -106,30 +107,14 @@ console.log(birthYears);
 //   { first: 'Katherine', last: 'Blodgett', year: 1898, passed: 1979 }
 // ]
 
+// PAS OP: sort past her originele array aan!
 const sorted = inventors.sort((inventorA, inventorB) => {
-  console.log("WHAT IS A?", inventorA.year, "WHAT IS B?", inventorB.year);
-  // what moeten we returnen?
-  // 1754 - 1987 => negatief getal
-  // 1910 - 1647 => positief getal
-  // 1900 - 1900 => 0
+  console.log("INVENTOR", inventorA.year);
   return inventorA.year - inventorB.year;
-  // if (inventorA.year > inventorB.year) {
-  //   return 1;
-  // }
-
-  // if (inventorA.year < inventorB.year) {
-  //   return -1;
-  // }
-
-  // if (inventorA.year === inventorB.year) {
-  //   return 0;
-  // }
-  // OF een positief getal: 1 of 10, 278 -> schuift op naar rechts in de array
-  // OF een negatief getal: -1 of -10 of -9864 -> schuift op naar links
-  // OF 0 -> blijft op dezelfde plek
 });
 
 console.log(sorted);
+console.log(inventors);
 
 // 5. Sorteer de uitvinders op hoeveel jaren ze geleefd hebben, van langste leven naar kortste leven
 // Verwachte uitkomst:
