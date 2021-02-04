@@ -21,19 +21,28 @@ const inventors = [
 // Q: Waarom Array methoden (waarom geen for loop?)
 
 // - [x] De naam opslaan van de uitvinder die ik wil vinden: variabele
-// - [ ] Loopen door de array van uitvinders
-// - [ ] Ik kan stoppen met loopen wanneer:
-//  - [ ] De naam de uitvinder hetzelfde is als de naam die ik zoek
-//  - [ ] Vergelijken: de naam die ik zoek met de naam van de uitvinder
-//  - [ ] De loop stoppen
-//  - [ ] De uitkomst loggen (of opslaan)
+// - [x] Loopen door de array van uitvinders
+// - [x] Ik kan stoppen met loopen wanneer: De naam de uitvinder hetzelfde is als de naam die ik zoek
+//  - [x] Vergelijken: de naam die ik zoek met de naam van de uitvinder
+//  - [x] De loop stoppen
+//  - [x] De uitkomst loggen (of opslaan)
 
 const lastNameToFind = "Meitner";
 
-for (let index = 0; index < inventors.length; index++) {
-  const inventor = inventors[index];
-  console.log("1 INVENTOR IN THE LOOP:", inventor);
+function findInventorByLastName(lastName) {
+  for (let index = 0; index < inventors.length; index++) {
+    const inventor = inventors[index];
+    console.log("1 INVENTOR IN THE LOOP:", inventor.last, lastNameToFind);
+    console.log("STOP NOW?", inventor.last === lastNameToFind);
+    if (inventor.last === lastNameToFind) {
+      console.log("STOP!");
+      return inventor;
+    }
+  }
 }
+
+const foundInventor = findInventorByLastName(lastNameToFind);
+console.log("GEVONDEN?", foundInventor);
 
 // 1. Filter de lijst op uitvinders die geboren zijn in de 16e eeuw
 // Verwachte uitkomst:
