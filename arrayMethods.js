@@ -70,8 +70,8 @@ console.log(foundInventor2);
 // Verwachte uitkomst:
 // [{ first: 'Galileo', last: 'Galilei', year: 1564, passed: 1642 }, { first: 'Johannes', last: 'Kepler', year: 1571, passed: 1630 }]
 const inventorsFrom16thCentury = inventors.filter((inventor) => {
-  console.log("INSIDE FILTER", 1500, inventor.year, 1600);
-  console.log("KEEP:", inventor.year >= 1500 && inventor.year < 1600); // true or false
+  // console.log("INSIDE FILTER", 1500, inventor.year, 1600);
+  // console.log("KEEP:", inventor.year >= 1500 && inventor.year < 1600); // true or false
   return inventor.year >= 1500 && inventor.year < 1600;
   // return true -> Houden
   // rturn false -> Worden ze niet toegevoegd aan het array wat je terugkrijgt
@@ -81,6 +81,13 @@ console.log(inventorsFrom16thCentury);
 
 // 2. Maak een array met daarin alle geboortejaren van de uitvinders
 // Verwachte uitkomst: [1879, 1643, 1564, 1867, 1571, 1473, 1858, 1898, 1815, 1855, 1878, 1847];
+
+const birthYears = inventors.map((inventor) => {
+  console.log(inventor.year);
+  return inventor.year;
+});
+
+console.log(birthYears);
 
 // 3. Maak een array met daarin alle volledige namen van de uitvinders (dus voor- en achternaam als één string)
 // Verwachte uitkomst: [ 'Albert Einstein', 'Isaac Newton', 'Galileo Galilei', 'Marie Curie', 'Johannes Kepler', 'Nicolaus Copernicus', 'Max Planck', 'Katherine Blodgett', 'Ada Lovelace', 'Sarah E. Goode', 'Lise Meitner', 'Thomas Edison']
